@@ -1,6 +1,7 @@
 ﻿using HW20;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
@@ -23,12 +24,11 @@ public class Serializer
         using var fileStream = new FileStream(path,
          FileMode.OpenOrCreate);
         var companies = JsonSerializer.Deserialize<List<BookMeeting>>(fileStream);
-       /////КАК ВЫВЕСТИ НА КОНСОЛЬ ДАННЫЕ?
+        foreach(var companie in companies)
+        {
+            Console.WriteLine($"{companie.DateMeeting.ToString()} , {companie.ThemeMeeting}");
+        }
         
-
-    }
-    public Serializer()
-    {
 
     }
    
